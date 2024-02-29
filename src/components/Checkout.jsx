@@ -21,7 +21,7 @@ export function Checkout({total, onClose, cart, setOrderToBack, handleSubmitOrde
 	
 	const order = {
 	  customer: {...data},
-	  items: items,
+	  items:    items,
 	};
 	
 	setOrderToBack(order);
@@ -31,7 +31,7 @@ export function Checkout({total, onClose, cart, setOrderToBack, handleSubmitOrde
   return (
 	<>
 	  <h2>Checkout</h2>
-	  <p>Total Amount: $432</p>
+	  <p>Total Amount: ${cart.reduce((acc, cur) => acc + cur.totalPrice, 0).toFixed(2)}</p>
 	  <form onSubmit={handleSubmit}>
 		<Input type={"text"} id={"fname"} name={"name"} labelText={"Full Name"} required/>
 		<Input type={"email"} id={"email"} name={"email"} labelText={"E-Mail Address"} required/>

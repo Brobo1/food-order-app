@@ -42,21 +42,18 @@ export async function postOrder(order) {
 */
 
 export async function postOrder(order) {
-  if (!order) {
-	return
-  } else {
-	
-	console.log("order out", order);
-	
-	const response = await fetch('http://localhost:3000/orders', {
-	  method:  'POST',
-	  headers: {
-		'Content-Type': 'application/json',
-	  },
-	  body:    JSON.stringify({order}),
-	});
-	
-	return response.json();
-	
-  }
+  if (!order) return;
+  
+  console.log("order out", order);
+  
+  const response = await fetch('http://localhost:3000/orders', {
+	method:  'POST',
+	headers: {
+	  'Content-Type': 'application/json',
+	},
+	body:    JSON.stringify({order}),
+  });
+  
+  return response.json();
+  
 }
